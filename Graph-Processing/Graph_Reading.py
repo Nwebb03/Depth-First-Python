@@ -3,7 +3,6 @@ graph = {}
 def Read(File_Name): 
     f = open(File_Name , "r")
     lines = f.readlines()
-    length = int(lines[0])
     for i in range(1, len(lines)):        
         if i%2 == 1:
             key = lines[i].strip("\n")

@@ -3,15 +3,15 @@ import copy
 import numpy as np
 #Basic Load Graph
 finished = False
-graph = GR.Read("Graph1")
+graph = GR.Read("Graph-Data\Graph1")
 startingpoint = input("Starting Node? ")
 endpoint = input("End node? ")
+print(type(startingpoint))
 #Creates a queue
 #Array of Arrays
 #Every item on the queue is a candidate path (Possible path to the goal, another list)
-queue = np.ndarray((1,), [startingpoint])
-print(queue.shape[0])
-print((queue.shape[0] != 0) & (finished == False))
+queue = np.ndarray((1,), "str", startingpoint)
+print(queue.dtype)
 while((queue.shape[0] != 0) & (finished == False)):
     #Candidate path taken from the queue for processing
     to_extend = np.ndarray([queue[0]])
