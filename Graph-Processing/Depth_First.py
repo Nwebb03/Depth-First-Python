@@ -1,18 +1,18 @@
 import Graph_Reading as GR
 import copy
-import numpy as np
+import pandas as pd
 
 #Basic Load Graph
 graph = GR.Read("Graph-Data\Graph1")
 startingpoint = input("Starting Node? ")
 endpoint = input("End node? ")
 
-print(type(startingpoint))
-
 #Create a processing queue
 #Every item on the queue is a candidate path (Possible path to the goal, another list)
-queue = np.ndarray((1,), "str", startingpoint)
-print(queue.dtype)
+queue = pd.DataFrame(columns= ["To_Extend", "Extended"], index= ["1"])
+queue.loc["1", "To_Extend"]= startingpoint
+print (queue)
+
 
 #loop conditional
 finished = False
