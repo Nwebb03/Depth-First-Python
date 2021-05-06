@@ -10,7 +10,7 @@ endpoint = input("End node? ")
 #Create a processing queue
 #Every item on the queue is a candidate path (Possible path to the goal, another list)
 queue = pd.DataFrame(columns= ["To_Extend"])
-queue.loc[1, "To_Extend"]= startingpoint
+queue.loc[1, "To_Extend"]= [startingpoint]
 print (queue)
 
 
@@ -19,6 +19,7 @@ finished = False
 while((queue.shape[0] != 0) & (finished == False)):
     #Candidate path taken from the queue for processing
     to_extend = queue.loc[1, "To_Extend"]
+    print(to_extend)
     #
     queue = queue.drop(index=1)
     #Main loop that "searches"
