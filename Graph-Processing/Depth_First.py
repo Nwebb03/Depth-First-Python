@@ -9,8 +9,8 @@ endpoint = input("End node? ")
 
 #Create a processing queue
 #Every item on the queue is a candidate path (Possible path to the goal, another list)
-queue = pd.DataFrame(columns= ["To_Extend", "Extended"], index= ["1"])
-queue.loc["1", "To_Extend"]= startingpoint
+queue = pd.DataFrame(columns= ["To_Extend"])
+queue.loc[1, "To_Extend"]= startingpoint
 print (queue)
 
 
@@ -18,9 +18,9 @@ print (queue)
 finished = False
 while((queue.shape[0] != 0) & (finished == False)):
     #Candidate path taken from the queue for processing
-    to_extend = np.ndarray([queue[0]])
+    to_extend = queue.loc[1, "To_Extend"]
     #
-    queue = np.delete(queue,0)
+    queue = queue.drop(index=1)
     #Main loop that "searches"
 
     for node in graph[to_extend[0]]:
