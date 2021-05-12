@@ -16,6 +16,7 @@ print (queue)
 
 #loop conditional
 finished = False
+print(graph)
 while((queue.shape[0] != 0) & (finished == False)):
     #Candidate path taken from the queue for processing
     to_extend = queue.loc[1, "To_Extend"]
@@ -25,10 +26,15 @@ while((queue.shape[0] != 0) & (finished == False)):
     #Main loop that "searches"
 
     for node in graph[to_extend[0]]:
-        extended = np.copy(to_extend)
+        """extended = np.copy(to_extend)           
         extended = np.append(extended, node)
         x = np.ndarray((2,2,), [extended])
-        queue = np.append(x, queue)
+        queue = np.append(x, queue)"""
+        print(node)
+        extended = copy.deepcopy(to_extend)          
+        extended.append(node)
+        print(extended)
+        queue.append(extended)
 
 
         
